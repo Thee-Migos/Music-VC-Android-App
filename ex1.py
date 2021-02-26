@@ -33,6 +33,13 @@ class Ex1(BoxLayout):
         def open_popup(self):
                 the_popup = CommitPopup()
                 the_popup.open()
+        
+        #vanilla backend methods aren't required to take in self as a parmeter
+        def init_system(prefix_dir):
+                #creates a new directory /prefix_dir/Master
+                #prefix_dir is a string containing the root directory for all our repos
+
+                pass
 
         def set_folder_as_default():
                 pass
