@@ -1,0 +1,13 @@
+<CustButton@Button>:
+        #Possible bug, if this doesnt run in another screen or root
+        #element, then size_hint_x or size_hint_y might be invalid for that widget 
+   
+        size_hint: .1, .1 
+
+<MainWindow>:
+        BoxLayout:
+                TextInput:
+                        id: usernameTextInputId
+
+                CustButton:
+                        text:"save"

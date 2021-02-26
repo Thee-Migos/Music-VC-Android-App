@@ -46,12 +46,12 @@
 
                 NavButton:
                         text: 'b2'
-                        pos_hint: {'x':.2,'y': .2} 
+                        pos_hint: {'x':.1,'y': .2} 
 
                 RelativeLayout:
                 NavButton:
                         text: 'b3'
-                        pos_hint: {'x':.4,'y': .2} 
+                        pos_hint: {'x':.2,'y': .2} 
                         
 
 
@@ -59,16 +59,14 @@
                         id: searchedTextId
                         multiline: False 
 
-                        size_hint: .5, .5
+                        size_hint: .4, .5
 
                         pos_hint: {'x':.5,'y': .2} 
 
-                Label:
-                        id:displaySearchedText
-                        text: "The searched string is :"
-
-                        pos_hint_y: 1.5
-                        pos_hint_x: 0
+                NavButton:
+                        text: "Search"
+                        pos_hint: {'x':.9,'y': .2}
+                        
 
                 
         BoxLayout:
@@ -158,12 +156,13 @@
                         MyButton:
                                 text: 'Upload'
                                 pos_hint:{'x':.05, 'y':.7}
-                                size_hint:.1, .4
+                                size_hint:.15, .4
+                                on_press: root.upload_to_server()
 
                         MyButton:
                                 text: 'Commit'
                                 pos_hint:{'x':.05, 'y':.5}
-                                size_hint:.1, .4
+                                size_hint:.15, .4
                                 on_press: root.open_popup()
 
 

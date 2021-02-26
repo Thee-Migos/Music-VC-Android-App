@@ -1,0 +1,12 @@
+from kivymd.app import MDApp
+from kivymd.uix.screen import MDScreen
+
+class MainWindow(MDScreen):
+        pass
+
+class Myapp(MDApp):
+    def build(self):
+        return MainWindow()
+
+if __name__ == '__main__':
+        Myapp().run()
