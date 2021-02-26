@@ -1,0 +1,176 @@
+<Logo@Label>:
+        color: 0, 0, 0, 1
+ 
+<CommitPopup>:
+        size_hint: .5, .5
+        auto_dismiss: False
+        title: "The Popup"
+        Button:
+                text: "Close"
+                on_press: root.dismiss()
+
+
+<NavButton@Button>:
+        size_hint: .1, .5
+
+<MyButton@Button>:
+        size_hint: None, None
+        size: 80, 50
+
+<ex1>:
+        #searchedTextObjProp: searchedTextId
+        
+        #rows: 4
+        orientation: 'vertical'
+
+        RelativeLayout:
+                size_hint: 1, .3
+
+                canvas.before:
+                        Color:
+                                rgb: 0.5, 0.5, 0.4 
+                                
+                        Rectangle:
+                        #Why should the below be root.pos and not self.pos
+                                pos: root.pos
+                                size: root.size
+
+                Label:
+                        id: label
+                        size_hint_y: 1                 
+
+
+                NavButton:
+                        text: 'b1'
+                        pos_hint: {'x':0,'y': .2}   
+
+                NavButton:
+                        text: 'b2'
+                        pos_hint: {'x':.2,'y': .2} 
+
+                RelativeLayout:
+                NavButton:
+                        text: 'b3'
+                        pos_hint: {'x':.4,'y': .2} 
+                        
+
+
+                TextInput:
+                        id: searchedTextId
+                        multiline: False 
+
+                        size_hint: .5, .5
+
+                        pos_hint: {'x':.5,'y': .2} 
+
+                Label:
+                        id:displaySearchedText
+                        text: "The searched string is :"
+
+                        pos_hint_y: 1.5
+                        pos_hint_x: 0
+
+                
+        BoxLayout:
+                size_hint: 1, 1.6 
+                RelativeLayout:
+                        size_hint: .55, 1
+
+                        FileChooserListView:
+                                canvas.before:
+                                        Color:
+                                                rgb: 0.4, 0.5, 0.5
+
+                                        Rectangle: 
+                                                pos: self.pos
+                                                size: self.size
+                
+                                on_selection:root.select(*args)
+                RelativeLayout:
+                        size_hint: 1, 1
+                    
+                        FileChooserIconView:
+
+                                on_selection: root.select(*args)
+                        
+                        
+
+                        #floating navbar section
+                        BoxLayout:
+                                orientation: 'vertical'
+
+                                size_hint:.2, .3
+                                Button:
+                                        text: 'Settings'
+                                        pos_hint: {'x':4, 'y': 3}
+                                
+                                
+                                Button:
+                                        text: 'Download'
+                                        pos_hint: {'x':4, 'y':3}
+                                        
+                                Button:
+                                        text: 'Unzip'
+                                        pos_hint: {'x':4, 'y':3}
+                
+        RelativeLayout:
+                size_hint: 1, 0.3
+
+                BoxLayout:
+                        orientation: "horizontal"
+                        #pos_hint:{'x':0, 'y':.5}
+
+                        canvas.before:
+                                Color:
+                                        rgb: 0.5, 0.5, 0.4 
+                                        
+                                Rectangle:
+                                        pos: self.pos
+                                        size: self.size
+                        
+                           
+                        Switch:
+                                id: switch_id
+                                on_active: root.switch_on(self, self.active)
+
+
+        RelativeLayout:
+                size_hint: 1, 0.8
+                        
+                canvas.before:
+                        Color:
+                                rgb: 0.4, 0.5, 0.5 
+                                        
+                        Rectangle:
+                                pos: self.pos
+                                size: self.size
+
+                Logo:
+                        pos_hint: {'x':-.05, 'y':.05}
+                        
+                        text: "Transient-Lotus"
+                        font_size: '60sp'
+
+                BoxLayout:
+                        pos_hint: {'x':.81, 'y': 0}
+                                
+                        orientation: 'vertical'
+                        MyButton:
+                                text: 'Upload'
+                                pos_hint:{'x':.05, 'y':.7}
+                                size_hint:.15, .4
+
+                        MyButton:
+                                text: 'Commit'
+                                pos_hint:{'x':.05, 'y':.5}
+                                size_hint:.15, .4
+                                on_press: root.open_popup()
+
+
+                
+                
+                
+                        
+                        
+
+
